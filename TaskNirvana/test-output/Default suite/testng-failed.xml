@@ -5,9 +5,11 @@
     <classes>
       <class name="task.LoginPage">
         <methods>
-          <include name="lauch"/>
+          <include name="getscreenshot"/>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="testEmptyFields"/>
+          <include name="valid"/>
         </methods>
       </class> <!-- task.LoginPage -->
     </classes>
