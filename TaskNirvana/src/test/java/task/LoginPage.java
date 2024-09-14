@@ -14,21 +14,13 @@ public class LoginPage extends BaseClass {
 		ExtentTest test=extent.createTest("verify the page valid data").assignAuthor("priyanka").assignCategory("functional test cases")
 				.assignDevice("Windows");
 		
-		//driver.get("https://www.saucedemo.com/");
-		
-		WebElement usernameField = driver.findElement(By.id("user-name")); 
-        WebElement passwordField = driver.findElement(By.id("password")); 
-        WebElement loginButton = driver.findElement(By.id("login-button")); 
-
-        usernameField.sendKeys("standard_user");
-        passwordField.sendKeys("secret_sauce");
-        loginButton.click(); 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html"); 
-        WebElement userProfile = driver.findElement(By.className("//div[@class=\"app_logo\"]")); 
+        WebElement userProfile = driver.findElement(By.xpath("//div[contains(text(),\"Swag Labs\")]"));
         Assert.assertTrue(userProfile.getText().contains("Swag Labs"));
         test.pass("verify the user");
     }
 @Test
+//(dependsOnMethods="testEmptyFields")
 public void invalid() {
 	ExtentTest test=extent.createTest("verify the invalid data");
 
@@ -49,7 +41,8 @@ public void invalid() {
 
     Assert.assertEquals(actualMessage, "Epic sadface: Username and password do not match any user in this service"); 
 }
-@Test
+@Test    
+//(dependsOnMethods="valid")
 public void testEmptyFields() {
     
 	ExtentTest test=extent.createTest("verify the empty fields");
@@ -62,7 +55,7 @@ public void testEmptyFields() {
     passwordField.clear();
     loginButton.click();
 
-    WebElement errorMessage = driver.findElement(By.xpath("//div[@class=\"error-message-container error\"]")); 
+    WebElement errorMessage = driver.findElement(By.className("error-button"));
     String actualMessage = errorMessage.getText();
 
     Assert.assertEquals(actualMessage, "Epic sadface: Username and password do not match any user in this service");

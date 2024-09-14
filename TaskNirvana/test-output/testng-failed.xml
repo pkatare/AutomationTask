@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="task.LoginPage">
+      <class name="task.CartPage">
         <methods>
+          <include name="viewCart"/>
           <include name="getscreenshot"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testEmptyFields"/>
-          <include name="valid"/>
         </methods>
-      </class> <!-- task.LoginPage -->
+      </class> <!-- task.CartPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

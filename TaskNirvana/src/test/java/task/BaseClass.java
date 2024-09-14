@@ -1,15 +1,10 @@
 package task;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.openqa.selenium.TakesScreenshot;
-import java.io.File;
 import org.testng.annotations.BeforeTest;
 import java.io.IOException;
 import com.aventstack.extentreports.ExtentReports;
@@ -37,6 +32,8 @@ public class BaseClass {
 	        //System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe"); 
 	        driver = new ChromeDriver(); 
 	        driver.get("https://www.saucedemo.com/");
+	        
+	       
 	    }
 		
 		@AfterMethod
